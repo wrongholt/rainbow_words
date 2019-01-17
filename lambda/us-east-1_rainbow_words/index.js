@@ -2,6 +2,7 @@
 /* eslint-disable  no-console */
 const main = require('./main.json');
 const wordsJson = require('./words.json');
+const modesJson = require('./modes.json');
 const optionsJson = require('./options.json');
 const Alexa = require('ask-sdk');
 var generateWord;
@@ -257,58 +258,6 @@ const AnotherWordHandler = {
   },
 };
 
-const allWordsIntentHandler = {
-  canHandle(handlerInput) {
-    const request = handlerInput.requestEnvelope.request;
-
-    return handlerInput.requestEnvelope.request.type === 'IntentRequest' &&
-      request.intent.name === 'allWordsIntentHandler';
-  },
-  async handle(handlerInput) {
-    const attributesManager = handlerInput.attributesManager;
-    const attributes = await attributesManager.getPersistentAttributes() || {};
-
-    databaseMode = "All Words Mode";
-    const speechText = 'You have picked All Words Mode, to start say: word me. ';
-    var it = 0;
-    var j = 0;
-    attributes.it = it;
-    attributes.j = j;
-    attributes.databaseMode = databaseMode;
-    attributesManager.setPersistentAttributes(attributes);
-    await attributesManager.savePersistentAttributes();
-    return handlerInput.responseBuilder
-      .speak(speechText)
-      .reprompt(speechText)
-      .withSimpleCard(speechText)
-      .getResponse();
-  },
-};
-
-const colorSectionIntentHandler = {
-  canHandle(handlerInput) {
-    const request = handlerInput.requestEnvelope.request;
-
-    return handlerInput.requestEnvelope.request.type === 'IntentRequest' &&
-      request.intent.name === 'colorSectionIntentHandler';
-  },
-  async handle(handlerInput) {
-    const attributesManager = handlerInput.attributesManager;
-    const attributes = await attributesManager.getPersistentAttributes() || {};
-
-    databaseMode = "Color Section Mode";
-    const speechText = 'You have picked Color Section Mode, to start say: word me.';
-    attributes.databaseMode = databaseMode;
-    attributesManager.setPersistentAttributes(attributes);
-    await attributesManager.savePersistentAttributes();
-    return handlerInput.responseBuilder
-      .speak(speechText)
-      .reprompt(speechText)
-      .withSimpleCard(speechText)
-      .getResponse();
-  },
-};
-
 const modesIntentHandler = {
   canHandle(handlerInput) {
     const request = handlerInput.requestEnvelope.request;
@@ -316,14 +265,56 @@ const modesIntentHandler = {
     return handlerInput.requestEnvelope.request.type === 'IntentRequest' &&
       request.intent.name === 'modesIntentHandler';
   },
-  handle(handlerInput) {
-    const speechText = 'Which Mode do you want Color Section Mode or All Words Mode?';
+  async handle(handlerInput) {
+    const attributesManager = handlerInput.attributesManager;
+    const attributes = await attributesManager.getPersistentAttributes() || {};
+if(databaseMode=="Color Section Mode"){
+  databaseMode="All Words Mode";
+}else{
+  databaseMode="Color Section Mode"
+}
 
+    if(databaseMode=="Color Section Mode"){
+    databaseMode = "Color Section Mode";
+    var speechText = 'You are now in Color Section Mode, to start say: word me.';
+    attributes.databaseMode = databaseMode;
+  }else if(databaseMode=="All Words Mode"){
+    databaseMode = "All Words Mode";
+    var speechText = 'You are now in All Words Mode, to start say: word me. ';
+    var it = 0;
+    var j = 0;
+    attributes.it = it;
+    attributes.j = j;
+    attributes.databaseMode = databaseMode;
+  }
+
+    attributesManager.setPersistentAttributes(attributes);
+    await attributesManager.savePersistentAttributes();
+    if (supportsAPL(handlerInput)) {
+    return handlerInput.responseBuilder
+        .withShouldEndSession(false)
+        .speak(speechText)
+        .addDirective({
+          type: 'Alexa.Presentation.APL.RenderDocument',
+          version: '1.0',
+          document: modesJson,
+          datasources: {
+            "mainData": {
+              "type": "object",
+              "properties": {
+                "title": speechText
+              }
+            }
+          }
+        })
+        .getResponse();
+    } else {
     return handlerInput.responseBuilder
       .speak(speechText)
       .reprompt(speechText)
       .withSimpleCard(speechText)
       .getResponse();
+    }
   },
 };
 
@@ -336,12 +327,31 @@ const modeHelpIntentHandler = {
   },
   handle(handlerInput) {
     const speechText = 'There are two modes: Color Section Mode, where the child learns through repetition or All Words Mode, in which the child will start at the beginning and work through all the words we have available.';
-
+    if (supportsAPL(handlerInput)) {
+      return handlerInput.responseBuilder
+          .withShouldEndSession(false)
+          .speak(speechText)
+          .addDirective({
+            type: 'Alexa.Presentation.APL.RenderDocument',
+            version: '1.0',
+            document: modesJson,
+            datasources: {
+              "mainData": {
+                "type": "object",
+                "properties": {
+                  "title": speechText
+                }
+              }
+            }
+          })
+          .getResponse();
+      } else {
     return handlerInput.responseBuilder
       .speak(speechText)
       .reprompt(speechText)
       .withSimpleCard(speechText)
       .getResponse();
+      }
   },
 };
 
@@ -407,8 +417,6 @@ exports.handler = skillBuilder
     LaunchRequestHandler,
     GetWordsIntentHandler,
     AnotherWordHandler,
-    allWordsIntentHandler,
-    colorSectionIntentHandler,
     modesIntentHandler,
     modeHelpIntentHandler,
     HelpIntentHandler,
