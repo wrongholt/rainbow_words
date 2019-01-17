@@ -1,0 +1,53 @@
+{
+  "manifest": {
+    "publishingInformation": {
+      "locales": {
+        "en-US": {
+          "summary": "For kids to learn words.",
+          "examplePhrases": [
+            "Alexa open rainbow words",
+            "Alexa tell rainbow words to word me",
+            "Alexa ask rainbow words to word me"
+          ],
+          "keywords": [
+            "Rainbow Words",
+            "Kindergarten words",
+            "Sight Words"
+          ],
+          "name": "rainbow_words_apl",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/95da/f86791fa3b524c1db952ea852fecf909/APP_ICON?versionId=anTq2oD8NhEHKgzkIW2xDNyqJQQ.bJwe&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1547319738&Signature=ohqwjhRbMpXBosH28KvTNrGR%2FB4%3D",
+          "description": "This is a skill for Kindergartners to learn how to read and spell certain words.",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/719b/353808bc45e842eba58800012fe3121e/APP_ICON_LARGE?versionId=EhL2M9WAX1fetBousH0aZBr_vUK9RT4r&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1547319738&Signature=etsAi9tIRNnqXmuStoZ9uAUmgTU%3D"
+        }
+      },
+      "isAvailableWorldwide": true,
+      "testingInstructions": "This skill is to utilize speech and display weather it is on a phone or on show or tap.",
+      "category": "EDUCATION_AND_REFERENCE",
+      "distributionCountries": []
+    },
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "sourceDir": ".\\lambda\\us-east-1_rainbow_words"
+        },
+        "interfaces": [
+          {
+            "type": "RENDER_TEMPLATE"
+          },
+          {
+            "type": "ALEXA_PRESENTATION_APL"
+          }
+        ]
+      }
+    },
+    "manifestVersion": "1.0",
+    "permissions": [],
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "isExportCompliant": true,
+      "containsAds": false,
+      "isChildDirected": true,
+      "usesPersonalInfo": false
+    }
+  }
+}

@@ -1,0 +1,630 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "rainbow words",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "GetWordsIntentHandler",
+          "slots": [
+            {
+              "name": "theWord",
+              "type": "WORD"
+            }
+          ],
+          "samples": [
+            "{theWord}",
+            "the word is {theWord}",
+            "it's {theWord}"
+          ]
+        },
+        {
+          "name": "AnotherWordHandler",
+          "slots": [],
+          "samples": [
+            "word me",
+            "next",
+            "next word",
+            "another word",
+            "word please",
+            "give me another word please"
+          ]
+        },
+        {
+          "name":"allWordsIntentHandler",
+          "samples":[
+            "All Words Mode",
+            "Words Mode",
+            "All Words"
+          ]
+        },
+        {
+          "name":"colorSectionIntentHandler",
+          "samples":[
+            "Color Section Mode",
+            "Color Mode",
+            "Color Section"
+          ]
+        },
+        {
+          "name":"modesIntentHandler",
+          "samples":[
+            "change modes",
+            "change mode",
+            "differant mode"
+          ]
+        },
+        {
+          "name":"modeHelpIntentHandler",
+          "samples":[
+            "modes",
+            "modes help",
+            "more about modes"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.MoreIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateSettingsIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NextIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PageUpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PageDownIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PreviousIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ScrollRightIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ScrollDownIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ScrollLeftIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ScrollUpIntent",
+          "samples": []
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "will"
+              }
+            },
+            {
+              "name": {
+                "value": "funny"
+              }
+            },
+            {
+              "name": {
+                "value": "was"
+              }
+            },
+            {
+              "name": {
+                "value": "four"
+              }
+            },
+            {
+              "name": {
+                "value": "pretty"
+              }
+            },
+            {
+              "name": {
+                "value": "under"
+              }
+            },
+            {
+              "name": {
+                "value": "yellow"
+              }
+            },
+            {
+              "name": {
+                "value": "now"
+              }
+            },
+            {
+              "name": {
+                "value": "new"
+              }
+            },
+            {
+              "name": {
+                "value": "soon"
+              }
+            },
+            {
+              "name": {
+                "value": "brown"
+              }
+            },
+            {
+              "name": {
+                "value": "want"
+              }
+            },
+            {
+              "name": {
+                "value": "said"
+              }
+            },
+            {
+              "name": {
+                "value": "not"
+              }
+            },
+            {
+              "name": {
+                "value": "white"
+              }
+            },
+            {
+              "name": {
+                "value": "where"
+              }
+            },
+            {
+              "name": {
+                "value": "what"
+              }
+            },
+            {
+              "name": {
+                "value": "who"
+              }
+            },
+            {
+              "name": {
+                "value": "black"
+              }
+            },
+            {
+              "name": {
+                "value": "went"
+              }
+            },
+            {
+              "name": {
+                "value": "must"
+              }
+            },
+            {
+              "name": {
+                "value": "ran"
+              }
+            },
+            {
+              "name": {
+                "value": "too"
+              }
+            },
+            {
+              "name": {
+                "value": "three"
+              }
+            },
+            {
+              "name": {
+                "value": "red"
+              }
+            },
+            {
+              "name": {
+                "value": "came"
+              }
+            },
+            {
+              "name": {
+                "value": "there"
+              }
+            },
+            {
+              "name": {
+                "value": "that"
+              }
+            },
+            {
+              "name": {
+                "value": "this"
+              }
+            },
+            {
+              "name": {
+                "value": "into"
+              }
+            },
+            {
+              "name": {
+                "value": "good"
+              }
+            },
+            {
+              "name": {
+                "value": "ate"
+              }
+            },
+            {
+              "name": {
+                "value": "but"
+              }
+            },
+            {
+              "name": {
+                "value": "are"
+              }
+            },
+            {
+              "name": {
+                "value": "away"
+              }
+            },
+            {
+              "name": {
+                "value": "two"
+              }
+            },
+            {
+              "name": {
+                "value": "blue"
+              }
+            },
+            {
+              "name": {
+                "value": "find"
+              }
+            },
+            {
+              "name": {
+                "value": "here"
+              }
+            },
+            {
+              "name": {
+                "value": "with"
+              }
+            },
+            {
+              "name": {
+                "value": "they"
+              }
+            },
+            {
+              "name": {
+                "value": "eat"
+              }
+            },
+            {
+              "name": {
+                "value": "one"
+              }
+            },
+            {
+              "name": {
+                "value": "come"
+              }
+            },
+            {
+              "name": {
+                "value": "do"
+              }
+            },
+            {
+              "name": {
+                "value": "all"
+              }
+            },
+            {
+              "name": {
+                "value": "saw"
+              }
+            },
+            {
+              "name": {
+                "value": "out"
+              }
+            },
+            {
+              "name": {
+                "value": "our"
+              }
+            },
+            {
+              "name": {
+                "value": "have"
+              }
+            },
+            {
+              "name": {
+                "value": "be"
+              }
+            },
+            {
+              "name": {
+                "value": "she"
+              }
+            },
+            {
+              "name": {
+                "value": "he"
+              }
+            },
+            {
+              "name": {
+                "value": "go"
+              }
+            },
+            {
+              "name": {
+                "value": "so"
+              }
+            },
+            {
+              "name": {
+                "value": "no"
+              }
+            },
+            {
+              "name": {
+                "value": "yes"
+              }
+            },
+            {
+              "name": {
+                "value": "down"
+              }
+            },
+            {
+              "name": {
+                "value": "ride"
+              }
+            },
+            {
+              "name": {
+                "value": "make"
+              }
+            },
+            {
+              "name": {
+                "value": "on"
+              }
+            },
+            {
+              "name": {
+                "value": "up"
+              }
+            },
+            {
+              "name": {
+                "value": "jump"
+              }
+            },
+            {
+              "name": {
+                "value": "well"
+              }
+            },
+            {
+              "name": {
+                "value": "get"
+              }
+            },
+            {
+              "name": {
+                "value": "little"
+              }
+            },
+            {
+              "name": {
+                "value": "did"
+              }
+            },
+            {
+              "name": {
+                "value": "am"
+              }
+            },
+            {
+              "name": {
+                "value": "at"
+              }
+            },
+            {
+              "name": {
+                "value": "for"
+              }
+            },
+            {
+              "name": {
+                "value": "look"
+              }
+            },
+            {
+              "id": "I",
+              "name": {
+                "value": "I"
+              }
+            },
+            {
+              "id": "a",
+              "name": {
+                "value": "a"
+              }
+            },
+            {
+              "id": "the",
+              "name": {
+                "value": "the"
+              }
+            },
+            {
+              "id": "can",
+              "name": {
+                "value": "can"
+              }
+            },
+            {
+              "id": "see",
+              "name": {
+                "value": "see"
+              }
+            },
+            {
+              "id": "like",
+              "name": {
+                "value": "like"
+              }
+            },
+            {
+              "id": "to",
+              "name": {
+                "value": "to"
+              }
+            },
+            {
+              "id": "and",
+              "name": {
+                "value": "and"
+              }
+            },
+            {
+              "id": "you",
+              "name": {
+                "value": "you"
+              }
+            },
+            {
+              "id": "big",
+              "name": {
+                "value": "big"
+              }
+            },
+            {
+              "id": "in",
+              "name": {
+                "value": "in"
+              }
+            },
+            {
+              "id": "it",
+              "name": {
+                "value": "it"
+              }
+            },
+            {
+              "id": "is",
+              "name": {
+                "value": "is"
+              }
+            },
+            {
+              "id": "we",
+              "name": {
+                "value": "we"
+              }
+            },
+            {
+              "id": "me",
+              "name": {
+                "value": "me"
+              }
+            },
+            {
+              "id": "my",
+              "name": {
+                "value": "my"
+              }
+            },
+            {
+              "id": "run",
+              "name": {
+                "value": "run"
+              }
+            },
+            {
+              "id": "play",
+              "name": {
+                "value": "play"
+              }
+            },
+            {
+              "id": "say",
+              "name": {
+                "value": "say"
+              }
+            }
+          ],
+          "name": "WORD"
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "GetWordsIntentHandler",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "theWord",
+              "type": "WORD",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.248588647832.577942247720"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.248588647832.577942247720",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What is the word?"
+          }
+        ]
+      }
+    ]
+  }
+}
