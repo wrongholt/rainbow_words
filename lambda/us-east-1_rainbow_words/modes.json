@@ -23,7 +23,7 @@
         {
           "type": "Text",
           "text": "${datasource.mainData.properties.title} <br> ${datasource.mainData.properties.subtitle}",
-          "color": "#fff",
+          "color": "#000",
           "width": "70vw",
           "fontSize": "7vw",
           "textAlign": "center"

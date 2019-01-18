@@ -280,7 +280,7 @@ if(databaseMode=="Color Section Mode"){
     attributes.databaseMode = databaseMode;
   }else if(databaseMode=="All Words Mode"){
     databaseMode = "All Words Mode";
-    var speechText = 'You are now in All Words Mode, to start say: word me. ';
+    var speechText = 'You are now in All Words Mode, to start say: word me.';
     var it = 0;
     var j = 0;
     attributes.it = it;
@@ -294,6 +294,7 @@ if(databaseMode=="Color Section Mode"){
     return handlerInput.responseBuilder
         .withShouldEndSession(false)
         .speak(speechText)
+        .withSimpleCard(speechText)
         .addDirective({
           type: 'Alexa.Presentation.APL.RenderDocument',
           version: '1.0',
@@ -311,7 +312,6 @@ if(databaseMode=="Color Section Mode"){
     } else {
     return handlerInput.responseBuilder
       .speak(speechText)
-      .reprompt(speechText)
       .withSimpleCard(speechText)
       .getResponse();
     }
@@ -331,6 +331,7 @@ const modeHelpIntentHandler = {
       return handlerInput.responseBuilder
           .withShouldEndSession(false)
           .speak(speechText)
+          .withSimpleCard(speechText)
           .addDirective({
             type: 'Alexa.Presentation.APL.RenderDocument',
             version: '1.0',
@@ -348,7 +349,6 @@ const modeHelpIntentHandler = {
       } else {
     return handlerInput.responseBuilder
       .speak(speechText)
-      .reprompt(speechText)
       .withSimpleCard(speechText)
       .getResponse();
       }
