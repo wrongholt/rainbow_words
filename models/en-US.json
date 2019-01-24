@@ -479,7 +479,10 @@
             {
               "id": "I",
               "name": {
-                "value": "I"
+                "value": "I",
+                "synonyms": [
+                  "eye"
+                ]
               }
             },
             {

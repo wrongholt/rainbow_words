@@ -1,35 +1,31 @@
 {
     "type": "APL",
     "version": "1.0",
-    "import": [
-      {
+    "import": [{
         "name": "alexa-layouts",
         "version": "1.0.0"
-      }
-    ],
+    }],
     "mainTemplate": {
-      "parameters": [
-        "datasource"
-      ],"item": [
-        {
+        "parameters": [
+            "datasource"
+        ],
+
+        "item": [{
             "type": "Container",
             "direction": "row",
             "alignItems": "center",
             "width": "100vw",
             "height": "100vh",
             "justifyContent": "center",
-            
-      "items": [
-        {
-          "type": "Text",
-          "text": "${datasource.mainData.properties.title} <br> ${datasource.mainData.properties.subtitle}",
-          "color": "#000",
-          "width": "70vw",
-          "fontSize": "7vw",
-          "textAlign": "center"
-        }
-      ]
-    }
-  ]
+            "item": {
+                "type": "Text",
+                "text": "${datasource.mainData.properties.title}",
+                "color": "#000",
+                "width": "80vw",
+                "fontSize": "5vw",
+                "textAlign": "center"
+            }
+        }]
+
     }
 }

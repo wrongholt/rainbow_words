@@ -35,7 +35,7 @@ const LaunchRequestHandler = {
     }
     attributes.i = i;
     attributesManager.setPersistentAttributes(attributes);
-    const welcomeMessage = `Welcome, to Rainbow Words. You are in ${databaseMode}. Pick your mode setting by saying, Change Mode. To learn about modes say, Modes.`;
+    const welcomeMessage = `Welcome, to Rainbow Words. You are in ${databaseMode}. Pick your mode setting by saying, Change Mode. To learn about modes say, Modes or say, help: for more information on viewing the words.`;
     await attributesManager.savePersistentAttributes();
     const title = "Welcome to Rainbow Words.";
     const subtitle = "Where kids learn words."
@@ -104,7 +104,7 @@ const GetWordsIntentHandler = {
       request.intent.slots.theWord.resolutions.resolutionsPerAuthority[0].values[0] &&
       request.intent.slots.theWord.resolutions.resolutionsPerAuthority[0].values[0].value &&
       request.intent.slots.theWord.resolutions.resolutionsPerAuthority[0].values[0].value.name) {
-      if (request.intent.slots.theWord.value == databaseWord) {
+      if (request.intent.slots.theWord.value === databaseWord) {
         var title = 'That is correct! ' + `${databaseWord}`;
         var speechText = `That is correct! ${databaseWord}`;
 
@@ -326,7 +326,7 @@ const modeHelpIntentHandler = {
       request.intent.name === 'modeHelpIntentHandler';
   },
   handle(handlerInput) {
-    const speechText = 'There are two modes: Color Section Mode, where the child learns through repetition or All Words Mode, in which the child will start at the beginning and work through all the words we have available.';
+    const speechText = 'There are two modes: Color Section Mode, where the child learns through repetition or All Words Mode, in which the child will start at the beginning and work through all the words we have available. To change modes say, Change Mode; to play say, word me; or to close say, Stop.';
     if (supportsAPL(handlerInput)) {
       return handlerInput.responseBuilder
           .withShouldEndSession(false)
@@ -361,7 +361,7 @@ const HelpIntentHandler = {
       handlerInput.requestEnvelope.request.intent.name === 'AMAZON.HelpIntent';
   },
   handle(handlerInput) {
-    const speechText = 'You start by saying next or word me. If I ever stop listening just say Alexa and the word.';
+    const speechText = "You can start by saying next or word me. If you don't have an Echo Display you can use the Alexa app on your phone. Open your Alexa app, press 3 lines menu at the top left, and select activity. Should refresh on it's own but if it doesn't just slide finger down on the activities and that will refresh and you will see the word on the top of the list.";
 
     return handlerInput.responseBuilder
       .speak(speechText)
